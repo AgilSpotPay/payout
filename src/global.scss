@@ -25,6 +25,14 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+.half-height-modal {
+    --height: 55%;
+    --border-radius: 20px 20px 0 0;
+    --width: 100%;
+    --max-width: 500px;
+    bottom: -250px;
+}
+
 /**
  * Ionic Dark Mode
  * -----------------------------------------------------

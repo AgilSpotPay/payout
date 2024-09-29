@@ -1,13 +1,14 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>landing</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="content">
+  <ion-img class="responsive-img" src="assets/img/landing_page_banner.png"></ion-img>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">landing</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="text-container">
+    <ion-title class="title">Explore the world</ion-title>
+    <p class="subtitle">Transfira e pague com agilidade e segurança em cada transação</p>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" style="margin-bottom: 30px; margin-right: 10px;">
+    <ion-fab-button [routerLink]="['/login']">
+      <ion-icon name="chevron-forward"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

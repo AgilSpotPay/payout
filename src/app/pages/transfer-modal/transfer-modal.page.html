@@ -1,0 +1,45 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Transferir</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" color="danger" (click)="closeModal()">Fechar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #transferForm="ngForm" (ngSubmit)="submitForm(transferForm)" novalidate>
+
+    <!-- Chave Pix -->
+    <ion-item>
+      <ion-label position="stacked">Chave Pix</ion-label>
+      <ion-input [(ngModel)]="pix_key" name="pix_key" placeholder="Digite a chave pix" required></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="transferForm.submitted && !pix_key">A chave Pix é obrigatória.</ion-note>
+
+    <!-- Valor -->
+    <ion-item>
+      <ion-label position="stacked">Valor</ion-label>
+      <ion-input [(ngModel)]="valor" name="valor" (ionInput)="formatToBRL($event)" placeholder="Digite o valor"
+        required></ion-input>
+    </ion-item>
+    <ion-note color="danger" *ngIf="transferForm.submitted && !valor">O valor é obrigatório.</ion-note>
+
+    <!-- Tipo de Chave Pix -->
+    <ion-item>
+      <ion-label position="stacked">Tipo de Chave Pix</ion-label>
+      <ion-select [(ngModel)]="key_type" name="key_type" class="full-width-select" interface="popover"
+        placeholder="Selecione o tipo" required>
+        <ion-select-option value="CPF">CPF</ion-select-option>
+        <ion-select-option value="CNPJ">CNPJ</ion-select-option>
+        <ion-select-option value="EMAIL">EMAIL</ion-select-option>
+        <ion-select-option value="PHONE">CELULAR</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-note color="danger" *ngIf="transferForm.submitted && !key_type">O tipo de chave Pix é obrigatório.</ion-note>
+
+    <!-- Botão Transferir (desabilitado se o formulário for inválido) -->
+    <ion-button expand="block" color="primary" shape="round" type="submit"
+      [disabled]="!transferForm.valid">Transferir</ion-button>
+  </form>
+</ion-content>

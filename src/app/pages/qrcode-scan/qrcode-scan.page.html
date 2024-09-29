@@ -1,0 +1,20 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goHome()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Ler QrCode - PIX</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="otp-container">
+    <h2>Toque para iniciar a leitura</h2>
+
+    <p class="ion-text-center" *ngIf="valor != ''" name="valor">Resultado capturado: {{ valor }}</p>
+
+    <ion-button expand="full" (click)="startScan()" class="verify-button">Ler QrCode</ion-button>
+  </div>
+</ion-content>

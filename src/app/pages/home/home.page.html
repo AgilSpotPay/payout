@@ -1,13 +1,180 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>home</ion-title>
+<ion-header class="ion-no-border" style="z-index: 100;">
+  <ion-toolbar
+    style="background-color: transparent; --background: transparent; display: flex; justify-content: space-between; align-items: center; padding-top: 20px;">
+    <ion-buttons slot="start" style="padding-left: 10px;">
+      <ion-button fill="clear">
+        <ion-img class="responsive-img" src="assets/img/icons/icon-sender.png" style="width: 30px;"></ion-img>
+        <!-- <ion-icon name="paper-plane" style="color: white !important;"></ion-icon> -->
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title class="custom-title">César Silva</ion-title>
+
+    <ion-buttons slot="end" style="padding-right: 15px;">
+      <ion-button fill="clear">
+        <ion-icon name="notifications-outline" style="color: white !important;"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">home</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<!-- Imagem de fundo com saldo e botões circularess -->
+<div class="image-container">
+  <ion-img class="responsive-img" src="assets/img/thumbnail.png"></ion-img>
+
+  <div class="balance-info">
+    <div class="balance-amount">
+      <span class="currency-symbol">R$</span>
+      <span class="amount-value">35.508,15</span>
+    </div>
+    <ion-label class="balance-label">Saldo</ion-label>
+  </div>
+
+  <!-- Botões circulares -->
+  <div class="icon-cards">
+    <div class="icon-card">
+      <ion-button fill="clear" shape="round" class="icon-main-input" (click)="openTransferModal()"
+        style="background-image:url('/assets/img/icons/inputs/icon-bt-pix.svg');">
+      </ion-button>
+      <ion-label class="icon-label">Transferir</ion-label>
+    </div>
+    <div class="icon-card">
+      <ion-button fill="clear" shape="round" class="icon-main-input"
+        style="background-image:url('/assets/img/icons/inputs/icon-bt-barcode.svg');">
+      </ion-button>
+      <ion-label class="icon-label">Pagar Conta</ion-label>
+    </div>
+    <div class="icon-card">
+      <ion-button fill="clear" shape="round" class="icon-main-input" [routerLink]="['/qrcode-scan']"
+        style="background-image:url('/assets/img/icons/inputs/icon-btn-scan-qrcode.svg');">
+      </ion-button>
+      <ion-label class="icon-label">Pagar Pix</ion-label>
+    </div>
+    <div class="icon-card">
+      <ion-button fill="clear" shape="round" class="icon-main-input"
+        style="background-image:url('/assets/img/icons/inputs/icon-btn-mobile.svg');">
+      </ion-button>
+      <ion-label class="icon-label">Recarga</ion-label>
+    </div>
+  </div>
+</div>
+
+<!-- Conteúdo principal -->
+<ion-content [fullscreen]="true" id="main-content">
+  <!-- Segunda parte do conteúdo com transações recentes -->
+
+  <div class="page-content">
+    <div class="transactions-header">
+      <ion-text class="header-title-font">Últimas Transações</ion-text>
+      <ion-text class="view-all">Ver Todas</ion-text>
+    </div>
+
+    <ion-list>
+
+      <swiper-container [slidesPerView]="1" [loop]="true">
+        <swiper-slide>
+          <ion-item>
+            <div class="transac-item">
+              <div class="transac-icon-container">
+                <ion-button fill="clear" shape="round" class="transac-circle-icon"></ion-button>
+              </div>
+              <div class="transac-details">
+                <h3 class="transac-title">Jady Aika</h3>
+                <span class="transac-time">15:32</span>
+              </div>
+              <div class="transac-amount-details">
+                <h3 class="transac-amount">R$32.00</h3>
+                <span class="transac-description">Pagamento Netflix</span>
+              </div>
+            </div>
+          </ion-item>
+        </swiper-slide>
+        <swiper-slide>
+          <ion-item>
+            <div class="transac-item">
+              <div class="transac-icon-container">
+                <ion-button fill="clear" shape="round" class="transac-circle-icon"></ion-button>
+              </div>
+              <div class="transac-details">
+                <h3 class="transac-title">Jady Aika</h3>
+                <span class="transac-time">15:32</span>
+              </div>
+              <div class="transac-amount-details">
+                <h3 class="transac-amount">R$32.00</h3>
+                <span class="transac-description">Pagamento Netflix</span>
+              </div>
+            </div>
+          </ion-item>
+        </swiper-slide>
+        <swiper-slide>
+          <ion-item>
+            <div class="transac-item">
+              <div class="transac-icon-container">
+                <ion-button fill="clear" shape="round" class="transac-circle-icon"></ion-button>
+              </div>
+              <div class="transac-details">
+                <h3 class="transac-title">Jady Aika</h3>
+                <span class="transac-time">15:32</span>
+              </div>
+              <div class="transac-amount-details">
+                <h3 class="transac-amount">R$32.00</h3>
+                <span class="transac-description">Pagamento Netflix</span>
+              </div>
+            </div>
+          </ion-item>
+        </swiper-slide>
+      </swiper-container>
+
+      <ion-item>
+        <div class="transac-item">
+          <div class="transac-icon-container">
+            <ion-button fill="clear" shape="round" class="transac-circle-icon"></ion-button>
+          </div>
+          <div class="transac-details">
+            <h3 class="transac-title">Jady Aika</h3>
+            <span class="transac-time">15:32</span>
+          </div>
+          <div class="transac-amount-details">
+            <h3 class="transac-amount">R$32.00</h3>
+            <span class="transac-description">Pagamento Netflix</span>
+          </div>
+        </div>
+      </ion-item>
+      <ion-item>
+        <div class="transac-item">
+          <div class="transac-icon-container">
+            <ion-button fill="clear" shape="round" class="transac-circle-icon"></ion-button>
+          </div>
+          <div class="transac-details">
+            <h3 class="transac-title">Marta Martins</h3>
+            <span class="transac-time">16:45</span>
+          </div>
+          <div class="transac-amount-details">
+            <h3 class="transac-amount">R$50.00</h3>
+            <span class="transac-description">Pagamento Spotify</span>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+
 </ion-content>
+
+
+
+<ion-footer class="custom-footer">
+  <div class="menu-footer">
+    <ion-button fill="clear" [routerLink]="['/login']">
+      <ion-icon name="home-outline"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear">
+      <ion-icon name="pie-chart-outline"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear">
+      <ion-icon name="card-outline"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear" [routerLink]="['/otp-verification']">
+      <ion-icon name="settings-outline"></ion-icon>
+    </ion-button>
+  </div>
+</ion-footer>

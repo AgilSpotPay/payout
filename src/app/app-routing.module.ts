@@ -24,8 +24,20 @@ const routes: Routes = [
     loadChildren: () => import('./pages/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
   },
   {
-    path: 'transfer-modal-page',
-    loadChildren: () => import('./pages/transfer-modal-page/transfer-modal-page.module').then( m => m.TransferModalPagePageModule)
+    path: 'transfer-modal',
+    loadChildren: () => import('./pages/transfer-modal/transfer-modal.module').then( m => m.TransferModalPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'otp-verification',
+    loadChildren: () => import('./pages/otp-verification/otp-verification.module').then( m => m.OtpVerificationPageModule)
+  },
+  {
+    path: 'qrcode-scan',
+    loadChildren: () => import('./pages/qrcode-scan/qrcode-scan.module').then( m => m.QrcodeScanPageModule)
   },
 ];
 

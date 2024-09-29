@@ -1,13 +1,58 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>signup</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="content" scrollAssist="false" scrollPadding="false">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">signup</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Imagem de banner -->
+  <ion-img class="responsive-img" src="assets/img/landing_page_banner.png"></ion-img>
+
+  <!-- Título e subtítulo -->
+  <div class="text-container">
+    <ion-title class="title">Bem Vindo(a)!</ion-title>
+    <p class="subtitle">Entre para acessar sua conta</p>
+  </div>
+
+  <!-- Formulário de Cadastro -->
+  <form action="" class="signup-form">
+    <div class="ion-padding">
+
+      <!-- Campo Nome Completo -->
+      <ion-item lines="none" class="custom-item">
+        <ion-icon name="person-outline" slot="start"></ion-icon>
+        <ion-input placeholder="Nome Completo"></ion-input>
+      </ion-item>
+
+      <!-- Campo CPF -->
+      <ion-item lines="none" class="custom-item">
+        <ion-icon name="id-card-outline" slot="start"></ion-icon>
+        <ion-input placeholder="CPF"></ion-input>
+      </ion-item>
+
+      <!-- Campo Data de Nascimento -->
+      <!-- <ion-item lines="none" class="custom-item">
+        <ion-icon name="calendar-outline" slot="start"></ion-icon>
+        <ion-datetime display-format="DD/MM/YYYY" placeholder="Data de Nascimento"></ion-datetime>
+      </ion-item> -->
+
+      <!-- Campo E-mail -->
+      <ion-item lines="none" class="custom-item">
+        <ion-icon name="at-outline" slot="start"></ion-icon>
+        <ion-input placeholder="E-mail"></ion-input>
+      </ion-item>
+
+      <!-- Campo Senha -->
+      <ion-item lines="none" class="custom-item">
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-input placeholder="Senha" type="password"></ion-input>
+      </ion-item>
+
+      <!-- Botão de Cadastro -->
+      <ion-button expand="block" color="primary" [routerLink]="['/home']"
+        style="padding-top: 20px;">Cadastrar</ion-button>
+
+      <!-- Link para Login -->
+      <div class="login-link">
+        <p>Já tem conta? <a [routerLink]="['/login']" style="text-decoration: none;">Logar</a></p>
+      </div>
+
+    </div>
+  </form>
+
 </ion-content>

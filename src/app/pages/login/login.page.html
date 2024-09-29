@@ -1,13 +1,43 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="content">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">login</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Imagem de banner -->
+  <ion-img class="responsive-img" src="assets/img/landing_page_banner.png"></ion-img>
+
+  <!-- Título e subtítulo -->
+  <div class="text-container">
+    <ion-title class="title">Bem Vindo(a)!</ion-title>
+    <p class="subtitle">Entre para acessar sua conta</p>
+  </div>
+
+  <!-- Formulário de Login -->
+  <form action="" class="login-form">
+    <div class="ion-padding">
+
+      <!-- Campo E-mail -->
+      <ion-item lines="none" class="custom-item">
+        <ion-icon name="person-outline" slot="start"></ion-icon>
+        <ion-input placeholder="E-mail" type="email"></ion-input>
+      </ion-item>
+
+      <!-- Campo Senha -->
+      <ion-item lines="none" class="custom-item">
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-input placeholder="Senha" type="password"></ion-input>
+      </ion-item>
+
+      <!-- Link para Esqueceu Senha -->
+      <div class="forgot-password" style="margin-bottom: 20px;">
+        <a [routerLink]="['/reset-password']" style="text-decoration: none;">Esqueceu a senha?</a>
+      </div>
+
+      <!-- Botão de Login -->
+      <ion-button expand="block" color="primary" [routerLink]="['/home']">Entrar</ion-button>
+
+      <!-- Link para criar conta -->
+      <div class="signup-link">
+        <p>Não tem conta? <a [routerLink]="['/signup']" style="text-decoration: none;">Criar Conta</a></p>
+      </div>
+    </div>
+  </form>
+
 </ion-content>

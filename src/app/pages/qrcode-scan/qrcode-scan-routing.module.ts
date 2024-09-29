@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TransferModalPagePage } from './transfer-modal-page.page';
+import { QrcodeScanPage } from './qrcode-scan.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: TransferModalPagePage
+    component: QrcodeScanPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class TransferModalPagePageRoutingModule {}
+export class QrcodeScanPageRoutingModule {}
