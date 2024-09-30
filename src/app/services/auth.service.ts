@@ -1,32 +1,3 @@
-// import { Injectable } from '@angular/core';
-// import { HttpClient, HttpParams } from '@angular/common/http';
-// import { Observable, throwError } from 'rxjs';
-// import { catchError } from 'rxjs/operators';
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class AuthService {
-//   private apiUrl = 'https://hub.admspot.com/cafeapi/me';
-
-//   constructor(private http: HttpClient) { }
-
-//   login(email: string, password: string): Observable<any> {
-//     // Criar parâmetros de consulta
-//     const params = new HttpParams()
-//       .set('email', email)
-//       .set('password', password);
-
-//     return this.http.get(this.apiUrl, { params })
-//       .pipe(
-//         catchError((error) => {
-//           console.error('Error during login:', error); // Exibir o erro no console para depuração
-//           return throwError(() => new Error('Login failed'));
-//         })
-//       );
-//   }
-// }
-
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
@@ -36,26 +7,63 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https://hub.admspot.com/cafeapi/me';
+  private apiUrl = 'https://hub.admspot.com/cafeapi/me'; // URL da API
 
   constructor(private http: HttpClient) { }
 
-  login(email: string, password: string): Observable<any> {
-    // Adicionando os headers para incluir o email e a senha
+  // Método para autenticar o usuário
+  authenticate(email: string, password: string): Observable<any> {
     const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
       'email': email,
-      'password': password
+      'password': password,
     });
 
-    console.log('EMAIL: ', email, 'SENHA: ', password);
-
-    // Fazendo a requisição GET com os headers
-    return this.http.get(this.apiUrl, { headers })
+    // Enviando a requisição GET com os cabeçalhos
+    // return this.http.get<any>(this.apiUrl, { headers });
+    return this.http.get(this.apiUrl, {
+      headers: headers,
+      withCredentials: true  // Certifique-se de que as credenciais estão sendo enviadas
+    })
       .pipe(
         catchError((error) => {
-          console.error('Erro durante o login:', error);
-          return throwError(() => new Error('Login falhou'));
+          console.error('Error in login request:', error);
+          return throwError(() => new Error('Login failed'));
         })
       );
   }
 }
+
+// import { Injectable } from '@angular/core';
+// import { HttpClient, HttpHeaders } from '@angular/common/http';
+// import { Observable, throwError } from 'rxjs';
+// import { catchError } from 'rxjs/operators';
+
+// @Injectable({
+//   providedIn: 'root'
+// })
+
+// export class AuthService {
+//   private apiUrl = 'https://hub.admspot.com/cafeapi/me';
+
+//   constructor(private http: HttpClient) { }
+
+//   login(email: string, password: string): Observable<any> {
+//     const headers = new HttpHeaders({
+//       'email': email,
+//       'password': password,
+//       'Content-Type': 'application/json'
+//     });
+
+//     return this.http.get(this.apiUrl, {
+//       headers: headers,
+//       withCredentials: true  // Certifique-se de que as credenciais estão sendo enviadas
+//     })
+//     .pipe(
+//       catchError((error) => {
+//         console.error('Error in login request:', error);
+//         return throwError(() => new Error('Login failed'));
+//       })
+//     );
+//   }
+// }
