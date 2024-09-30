@@ -57,7 +57,7 @@
     transform: translate(-50%, -50%);
 }
 
-.balance-amount {
+.balance-amount_euro {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -67,8 +67,24 @@
     color: white;
 }
 
-.currency-symbol {
+.currency-symbol_euro {
     margin-right: -15px;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.balance-amount {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: white;
+}
+
+.currency-symbol {
+    margin-left: -10px;
     font-size: 0.9rem;
     color: white;
 }
@@ -141,7 +157,7 @@
 
 .icon-label {
     margin-top: 5px;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     color: white;
 }
 

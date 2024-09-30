@@ -10,19 +10,18 @@
   </div>
 
   <!-- Formulário de Login -->
-  <form action="" class="login-form">
-    <div class="ion-padding">
-
+  <form class="login-form" (ngSubmit)="login()">
+    <!-- <div class="ion-padding"> -->
       <!-- Campo E-mail -->
       <ion-item lines="none" class="custom-item">
         <ion-icon name="person-outline" slot="start"></ion-icon>
-        <ion-input placeholder="E-mail" type="email"></ion-input>
+        <ion-input placeholder="E-mail" type="email" [(ngModel)]="email" name="email" required></ion-input>
       </ion-item>
 
       <!-- Campo Senha -->
       <ion-item lines="none" class="custom-item">
         <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
-        <ion-input placeholder="Senha" type="password"></ion-input>
+        <ion-input placeholder="Senha" type="password" [(ngModel)]="password" name="password" required></ion-input>
       </ion-item>
 
       <!-- Link para Esqueceu Senha -->
@@ -31,13 +30,14 @@
       </div>
 
       <!-- Botão de Login -->
-      <ion-button expand="block" color="primary" [routerLink]="['/home']">Entrar</ion-button>
+      <ion-button expand="block" color="primary" type="submit">Entrar</ion-button>
+      <ion-text color="danger" *ngIf="errorMessage">{{ errorMessage }}</ion-text>
 
       <!-- Link para criar conta -->
       <div class="signup-link">
         <p>Não tem conta? <a [routerLink]="['/signup']" style="text-decoration: none;">Criar Conta</a></p>
       </div>
-    </div>
+    <!-- </div> -->
   </form>
 
 </ion-content>
